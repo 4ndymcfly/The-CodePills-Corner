@@ -6,4 +6,4 @@ Be careful because it does not ask for confirmation and will remove any trace of
 **USE:** From any console type:
 `cleanDocker`
 
-**NOTE:** Yes, I know the "prune" command... 😉
+ENJOY 😉
