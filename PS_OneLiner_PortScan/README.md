@@ -1,4 +1,4 @@
-# PowerShell OmeLiner PortScan
+# PowerShell OneLiner PortScan
 
 This is a demo for a oneliner portscan in Windows, is too slow but good for learning PowerShell scripting.
 
