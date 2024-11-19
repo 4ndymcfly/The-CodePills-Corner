@@ -4,7 +4,7 @@
 # This function performs the following tasks:
 #   - Identifies the type of machine (Linux or Windows).
 #   - Provides information about open ports and available services.
-#   - Generates a colorful report thanks to `batcat` (requires it to be installed).
+#   - Generates a colorful report thanks to batcat (it is recommended to have it installed).
 #   - Creates a report in XML format (targeted.xml) for clearer and more organized visualization in your browser.
 #
 # 4ndymcfly 2024
@@ -47,7 +47,14 @@ scanNmap () {
 		echo $open_ports | tr -d '\n' | xclip -sel clip
 		echo -e "${BLUE}[i] Starting comprehensive scan on the found ports...${NOCOLOR}"
 		sudo nmap -sCV -p $open_ports $1 --stylesheet=https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/stable/nmap-bootstrap.xsl -oN targeted -oX targeted.xml > /dev/null
-		/usr/bin/batcat --paging=never -l perl ./targeted
+		
+		# Check if batcat is installed
+		if command -v batcat &>/dev/null; then
+			/usr/bin/batcat --paging=never -l perl ./targeted
+		else
+			echo -e "${RED}[!] batcat not found. Using cat instead.${NOCOLOR}"
+			cat ./targeted
+		fi
 	else
 		echo -e "${RED}[!] No open ports found.${NOCOLOR}"
 	fi
