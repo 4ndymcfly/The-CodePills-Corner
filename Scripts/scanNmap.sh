@@ -1,3 +1,13 @@
+# Function to scan with NMAP, automating almost everything.
+# Copy this into your `.bashrc` or `.zshrc` file, depending on your shell.
+#
+# This function performs the following tasks:
+# - Identifies the type of machine (Linux or Windows).
+# - Provides information about open ports and available services.
+# - Generates a colorful report thanks to `batcat` (requires it to be installed).
+#
+# 4ndymcfly 2024
+
 scanNmap () {
   NOCOLOR="\033[0m\e[0m"
   RED="\e[0;31m\033[1m"
